@@ -27,16 +27,8 @@ def check_luhn(card_number):
     is_parity = False
 
     for digit in range(card_len - 1, -1, -1):
-        if is_parity:
-            cal = int(card_number[digit]) * 2
-        else:
-            cal = int(card_number[digit])
-
-        if cal > 9:
-            check_sum += cal - 9
-        else:
-            check_sum += cal
-
+        cal = int(card_number[digit]) * 2 if is_parity else int(card_number[digit])
+        check_sum += cal - 9 if cal > 9 else cal
         is_parity = not is_parity
 
     return check_sum % 10 == 0

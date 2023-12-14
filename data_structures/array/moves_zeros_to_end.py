@@ -4,7 +4,7 @@
 def move(arr):
     count = 0
     for a in arr:
-        if not a == 0:
+        if a != 0:
             arr[count] = a
             count += 1
     while count < len(nums):

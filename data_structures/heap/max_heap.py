@@ -41,15 +41,11 @@ class MaxHeap:
         index of children are twice their index as those indexes
         do not exist in the heap
         """
-        if self.mid_index() <= pos <= self.last_index():
-            return True
-        return False
+        return self.mid_index() <= pos <= self.last_index()
 
 
     def is_empty(self):
-        if self.size == 0:
-            return True
-        return False
+        return self.size == 0
 
     
     def insert(self, value):
@@ -80,20 +76,21 @@ class MaxHeap:
         This function will run whenever a node is non-leaf
         node and smaller than its childen
         """
-        if not self.is_leaf(pos):
-            left = self.heap[self.left_child(pos)]
-            right = self.heap[self.right_child(pos)]
-            curr = self.heap[pos]
+        if self.is_leaf(pos):
+            return
+        left = self.heap[self.left_child(pos)]
+        right = self.heap[self.right_child(pos)]
+        curr = self.heap[pos]
 
-            if curr < left or curr < right:
-                
-                # This check is only to prevent out-of-index error
-                if left > right:
-                    self.swap(pos, self.left_child(pos))
-                    self.max_heapify(self.left_child(pos))
-                else:
-                    self.swap(pos, self.right_child(pos))
-                    self.max_heapify(self.right_child(pos))
+        if curr < left or curr < right:
+
+            # This check is only to prevent out-of-index error
+            if left > right:
+                self.swap(pos, self.left_child(pos))
+                self.max_heapify(self.left_child(pos))
+            else:
+                self.swap(pos, self.right_child(pos))
+                self.max_heapify(self.right_child(pos))
 
 
     def swap(self, x, y):

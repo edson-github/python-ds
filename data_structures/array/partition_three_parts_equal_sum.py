@@ -1,6 +1,6 @@
 def partition(arr):
     s = sum(arr)
-    if not s % 3 == 0:
+    if s % 3 != 0:
         return False
     s = s / 3
     targets = [2*s, s]
@@ -12,5 +12,5 @@ def partition(arr):
             targets.pop()
         if not targets:
             return True
-    
+
     return False

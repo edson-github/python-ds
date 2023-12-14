@@ -21,10 +21,7 @@ def closest_element(root, k):
             min_diff = abs(curr.val - k)
             element = curr.val
 
-        if curr.val > k:
-            curr = curr.left
-        else:
-            curr = curr.right
+        curr = curr.left if curr.val > k else curr.right
     return element
 
 

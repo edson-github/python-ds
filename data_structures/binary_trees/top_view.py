@@ -17,11 +17,10 @@ def top_view(root):
     if not root:
         return
 
-    queue = []
     col = 0
     d = {}
 
-    queue.append(root)
+    queue = [root]
     root.col = col
 
     while queue:
@@ -30,7 +29,7 @@ def top_view(root):
 
         if col not in d:
             d[col] = root.val
-        
+
         if root.left:
             queue.append(root.left)
             root.left.col = col - 1

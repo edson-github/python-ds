@@ -22,13 +22,15 @@ def is_perfect_util(root, d, level=0):
     if not root:
         return True
 
-    if not root.left and not root.right:
+    if root.left or root.right:
+        return (
+            False
+            if not root.left or not root.right
+            else is_perfect_util(root.left, d, level + 1)
+            and is_perfect_util(root.right, d, level + 1)
+        )
+    else:
         return d == level + 1
-
-    if not root.left or not root.right:
-        return False
-
-    return is_perfect_util(root.left, d, level+1) and is_perfect_util(root.right, d, level+1)
 
 
 def is_perfect(root):

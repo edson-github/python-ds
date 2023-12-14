@@ -13,11 +13,7 @@ def binary_search(arr, start, end, val):
 
 def search(arr, val):
     if len(arr) == 1:
-        if arr[0] == val:
-            return "Found"
-        else:
-            return "Not found"
-    
+        return "Found" if arr[0] == val else "Not found"
     temp = arr[0]
     low = 0
     high = 1
@@ -29,10 +25,7 @@ def search(arr, val):
 
     ans = binary_search(arr, low, high, val)
 
-    if ans == -1:
-        return "Not Found"
-    else:
-        return "Found at index {}".format(ans)
+    return "Not Found" if ans == -1 else f"Found at index {ans}"
 
 
 arr = [1,3,5,6,7,8,9,11,13,15,19]

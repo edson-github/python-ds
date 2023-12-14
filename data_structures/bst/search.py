@@ -8,10 +8,7 @@ class Node():
 def search(root, val):
     if root is None or root.val == val:
         return root
-    if root.val < val:
-        return search(root.left, val)
-    else:
-        return search(root.right, val)
+    return search(root.left, val) if root.val < val else search(root.right, val)
 
 
 def search_iterative(root, val):

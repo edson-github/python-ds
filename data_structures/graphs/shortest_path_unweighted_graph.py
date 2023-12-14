@@ -27,9 +27,7 @@ class Graph:
         parent = [-1] * self.vertices
         visited = [False] * self.vertices
         visited[s] = True
-        queue = []
-        queue.append(s)
-
+        queue = [s]
         while queue:
             s = queue.pop(0)
 
@@ -38,7 +36,7 @@ class Graph:
                     queue.append(i)
                     parent[i] = s
                     visited[i] = True
-        
+
         return parent
 
     

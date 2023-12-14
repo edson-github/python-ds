@@ -8,7 +8,7 @@ class Graph:
 
     def __init__(self, vertices, is_directed):
         self.V = vertices
-        self.graph = [[] for i in range(vertices)]
+        self.graph = [[] for _ in range(vertices)]
         self.is_directed = is_directed
 
 

@@ -9,7 +9,7 @@ def find_hash(arr, sum):
         current_sum = sum - arr[i]
         for j in range(i+1, len(arr)):
             if (current_sum - arr[j]) in s:
-                return "Values are {}, {}, {}".format(arr[i], arr[j], current_sum-arr[j])
+                return f"Values are {arr[i]}, {arr[j]}, {current_sum - arr[j]}"
             s.add(arr[j])
     return "Not found"
 

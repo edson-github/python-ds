@@ -31,8 +31,8 @@ def diagonal_print(root):
     diagonal_map = dict()
 
     diagonal_print_util(root, 0, diagonal_map)
-    
-    for i in diagonal_map:
-        for j in diagonal_map[i]:
+
+    for value in diagonal_map.values():
+        for j in value:
             print(j, end=" ")
         print('')

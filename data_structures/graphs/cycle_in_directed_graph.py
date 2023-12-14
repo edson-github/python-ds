@@ -17,11 +17,12 @@ class Graph:
         rec_stack[v] = True
 
         for neighbour in self.graph[v]:
-            if visited[neighbour] == False:
-                if self.is_cyclic_util(neighbour, visited, rec_stack):
-                    return True
-
-            elif rec_stack[neighbour] == True:
+            if (
+                visited[neighbour] == False
+                and self.is_cyclic_util(neighbour, visited, rec_stack)
+                or visited[neighbour] != False
+                and rec_stack[neighbour] == True
+            ):
                 return True
 
         rec_stack[v] = False

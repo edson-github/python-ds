@@ -43,11 +43,10 @@ class Graph:
             if visited[vertex] == False:
                 self.dfs(vertex, intime, outtime, timer, visited)
 
-        
-        if (intime[u] < intime[v] and outtime[u] > outtime[v]) \
-            or (intime[v] < intime[u] and outtime[v] > outtime[u]):
-            return True
-        return False
+
+        return (intime[u] < intime[v] and outtime[u] > outtime[v]) or (
+            intime[v] < intime[u] and outtime[v] > outtime[u]
+        )
 
 
 g = Graph(9)

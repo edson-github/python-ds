@@ -42,13 +42,12 @@ class PalindromicTree:
 
         if new_node.length == 1:
             new_node.suffix = self.null_root
-            self.previous = new_node
         else:
             self.previous = self.previous.suffix
             while index - 1 - self.previous.length < 0 or string[index - 1 - self.previous.length] != string[index]:
                 self.previous = self.previous.suffix
             new_node.suffix = self.previous.next[string[index]]
-            self.previous = new_node
+        self.previous = new_node
         self.all_palindromes.append(new_node)
 
     def how_many_palindromes(self):

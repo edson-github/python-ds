@@ -42,7 +42,7 @@ def second_largest(root):
 
 
 def insert(root, key):
-    if root == None:
+    if root is None:
         return Node(key)
     if key < root.val:
         root.left = insert(root.left, key)

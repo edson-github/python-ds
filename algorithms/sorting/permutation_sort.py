@@ -13,10 +13,7 @@ def bogo_sort(a):
 
 def is_sorted(a):
     n = len(a)
-    for i in range(0, n - 1):
-        if (a[i] > a[i + 1]):
-            return False
-    return True
+    return all(a[i] <= a[i + 1] for i in range(0, n - 1))
 
 # To generate permuatation of the array
 
@@ -32,5 +29,5 @@ def shuffle(a):
 a = [3, 2, 4, 1, 0, 5]
 bogo_sort(a)
 print("Sorted array :")
-for i in range(len(a)):
-    print("%d" % a[i]),
+for item in a:
+    (print("%d" % item), )

@@ -22,10 +22,9 @@ def KMP_pattern_search(pattern, text):
             j += 1
 
         if j == P:
-            print("Pattern found at index " + str(i-j))
+            print(f"Pattern found at index {str(i - j)}")
             j=long_prefix_suffix[j-1]
 
-        # mismatch after j matches
         elif i < Q and pattern[j] != text[i]:
             if j != 0:
                 j=long_prefix_suffix[j-1]
@@ -44,12 +43,12 @@ def long_Prefix_Suffix_Array(pattern, P, long_prefix_suffix):
             l += 1
             long_prefix_suffix[i] = l
             i += 1
+        elif l == 0:
+            long_prefix_suffix[i] = 0
+            i += 1
+
         else:
-            if l != 0:
-                l=long_prefix_suffix[l-1]
-            else:
-                long_prefix_suffix[i] = 0
-                i += 1
+            l=long_prefix_suffix[l-1]
 
 text = "ABABDABACDABABCABAB"
 pattern = "ABABCABAB"

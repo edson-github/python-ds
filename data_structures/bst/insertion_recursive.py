@@ -8,17 +8,15 @@ class Node():
 def insertion_recursive(root, val):
     if not root:
         return Node(val)
-    else:
-        if root.val < val:
-            if root.right is None:
-                root.right = Node(val)
-            else:
-                insertion_recursive(root.right, val)
+    if root.val < val:
+        if root.right is None:
+            root.right = Node(val)
         else:
-            if root.left is None:
-                root.left = Node(val)
-            else:
-                insertion_recursive(root.left, val)
+            insertion_recursive(root.right, val)
+    elif root.left is None:
+        root.left = Node(val)
+    else:
+        insertion_recursive(root.left, val)
 
 
 def inorder(root):

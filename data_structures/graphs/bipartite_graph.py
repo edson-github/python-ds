@@ -31,8 +31,7 @@ class Graph:
 
     def bfs(self, s):
         visited = [False] * self.V
-        queue = []
-        queue.append(s)
+        queue = [s]
         visited[s] = True
 
         while queue:
@@ -53,15 +52,13 @@ class Graph:
         colors = [-1] * self.V
         colors[s] = 1  # Color soure vertex red
 
-        queue = []
-        queue.append(s)
-
+        queue = [s]
         while queue:
             s = queue.pop(0)
 
             if s in self.graph[s]: # Check for self loop
                 return False
-            
+
             # An edge u to v exists and destination is not 
             # colored
             for i in self.graph[s]:

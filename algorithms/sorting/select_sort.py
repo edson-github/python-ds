@@ -15,10 +15,10 @@ def find_smallest(arr):
 def selection_sort(arr):
     new_arr = []
 
-    for i in range(len(arr)):
+    for _ in range(len(arr)):
         smallest = find_smallest(arr)
         new_arr.append(arr.pop(smallest))
-    
+
     return new_arr
 
 array = [100, 5, 72, 41, 80, 1, 99, 36, 27, 78]

@@ -16,7 +16,7 @@ def convert(root):
     convert(root.left)
     convert(root.right)
 
-    if root.left == None:
+    if root.left is None:
         root.left = root.right
     else:
         root.left.right = root.right

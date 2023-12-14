@@ -22,17 +22,15 @@ class Graph:
     def print_levels(self, s):
         levels = [None] * self.vertices
         levels[s] = 0
-        queue = []
-        queue.append(s)
-
+        queue = [s]
         while queue:
             s = queue.pop(0)
 
             for i in self.graph[s]:
-                if levels[i] == None:
+                if levels[i] is None:
                     levels[i] = levels[s] + 1
                     queue.append(i)
-         
+
         print('Node \t Level')
         for node, level in enumerate(levels):
             print(f'{node} \t {level}')

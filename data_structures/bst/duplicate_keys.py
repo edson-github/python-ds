@@ -55,29 +55,28 @@ def min_value_node(root):
 def delete(root, val):
     if not root:
         return None
-    
+
     if val < root.val:
         root.left = delete(root.left, val)
     elif val > root.val:
         root.right = delete(root.right, val)
+    elif root.count > 1:
+        root.count -= 1
     else:
-        if root.count > 1:
-            root.count -= 1
-        else:
-            # check if left node is None
-            if not root.left:
-                temp = root.right
-                root = None
-                return temp
-            # chec if right node is None
-            if not root.right:
-                temp = root.left
-                root = None
-                return temp
-            
-            temp = min_value_node(root.right)
-            root.val = temp.val
-            root.right = delete(root.right, temp.val)
+        # check if left node is None
+        if not root.left:
+            temp = root.right
+            root = None
+            return temp
+        # chec if right node is None
+        if not root.right:
+            temp = root.left
+            root = None
+            return temp
+
+        temp = min_value_node(root.right)
+        root.val = temp.val
+        root.right = delete(root.right, temp.val)
 
     return root
 

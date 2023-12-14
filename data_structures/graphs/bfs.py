@@ -14,9 +14,8 @@ class Graph:
     def bfs(self, s):
         visited = [False] * self.vertices
 
-        queue = []
+        queue = [s]
 
-        queue.append(s)
         visited[s] = True
 
         bfs = []

@@ -3,46 +3,28 @@ import math
 class divisors:
 
     def findAllDivisors(self, n):
-        result = list()
-
-        for i in range(1, n+1):
-            if (n%i == 0): 
-                result.append(i)
-        
-        return result
+        return [i for i in range(1, n+1) if (n%i == 0)]
 
     def divisorsCount(self, n):
         divs = self.findAllDivisors(n)
         return len(divs)
 
     def oddFactors(self, n):
-        result = list()
-
-        for i in range(1, n+1):
-            if (n%i == 0 and i%2==1): 
-                result.append(i)
-        
-        return result
+        return [i for i in range(1, n+1) if (n%i == 0 and i%2==1)]
 
     def oddFactorsSum(self, n):
         divs = self.evenFactors(n)
         return sum(divs)
 
     def evenFactors(self, n):
-        result = list()
-
-        for i in range(1, n+1):
-            if (n%i == 0 and i%2==0): 
-                result.append(i)
-        
-        return result
+        return [i for i in range(1, n+1) if (n%i == 0 and i%2==0)]
 
     def evenFactorsSum(self, n):
         divs = self.evenFactors(n)
         return sum(divs)
 
     def primeFactors(self, n):
-        result = list()
+        result = []
 
         while n % 2 == 0: 
             result.append(2) 
@@ -52,10 +34,10 @@ class divisors:
             while n % i== 0: 
                 result.append(i) 
                 n = n / i 
-                
+
         if n > 2: 
             result.append(n)
-        
+
         return result
 
     def primeFactorsSum(self, n):

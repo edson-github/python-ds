@@ -12,15 +12,14 @@ def front_and_back_search(lst, item):
     u=None
     if rear>front:
         return False
-    else:
-        while rear<=front:
-            if item==lst[rear] or item==lst[front]:
-                u=''
-                return True ##item found
-            elif item!=lst[rear] and item!=lst[front]:
-                if item > lst[rear]:
-                    rear=rear+1
-                elif item < lst[front]:
-                    front=front-1
-        if u==None:
-            return False
+    while rear<=front:
+        if item in [lst[rear], lst[front]]:
+            u=''
+            return True ##item found
+        else:
+            if item > lst[rear]:
+                rear += 1
+            elif item < lst[front]:
+                front=front-1
+    if u is None:
+        return False

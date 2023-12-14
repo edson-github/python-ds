@@ -56,11 +56,10 @@ def print_vertical(root):
 
 
 def print_vertical_iterative(root):
-    queue = []
     col = 0
     d = {}
 
-    queue.append(root)
+    queue = [root]
     root.col = col
 
     while queue:

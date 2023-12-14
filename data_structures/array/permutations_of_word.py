@@ -7,8 +7,7 @@ def permutation(lst):
     for i in range(len(lst)):
         m = lst[i]
         rem_lst = lst[:i] + lst[i+1:]
-        for p in permutation(rem_lst):
-            l.append([m] + p)
+        l.extend([m] + p for p in permutation(rem_lst))
     return l
 
 

@@ -12,21 +12,18 @@ Time Complexity : The goal is to complete this question in O(n).
 
 #function to check whether a character is vowel or not
 def is_vowel(character):
-    if character.lower() in ['a', 'e', 'i', 'o', 'u']: 
-        return True
-    else:  
-        return False
+    return character.lower() in ['a', 'e', 'i', 'o', 'u']
   
 
 #function to find the number of adjacent vowel pairs.
 def adjacent_pairs(string):
     string=string.lower()
     n=len(string)
-    count = 0
-    for i in range(0,n):
-        if ((is_vowel(string[i]) and is_vowel(string[i + 1]))): 
-            count += 1
-    return count
+    return sum(
+        1
+        for i in range(0, n)
+        if ((is_vowel(string[i]) and is_vowel(string[i + 1])))
+    )
 
 #driver code
 string=input("enter string")

@@ -54,10 +54,9 @@ class MedianStream:
                 max_popped = -1 * heappop(self.max_heap)
                 heappush(self.min_heap, max_popped)
                 heappush(self.max_heap, -1 * num)
-                self.find_median('avg')
             else:
                 heappush(self.min_heap, num)
-                self.find_median('avg')
+            self.find_median('avg')
         else:
             if num > self.curr_median:
                 # num will go to the min heap and the min element
@@ -65,12 +64,11 @@ class MedianStream:
                 min_popped = heappop(self.min_heap)
                 heappush(self.max_heap, -1 * min_popped)
                 heappush(self.min_heap, num)
-                self.find_median('max')
-
             else:
                 # num will go to the max heap
                 heappush(self.max_heap, -1 * num)
-                self.find_median('max')
+
+            self.find_median('max')
     
 
     def find_median(self, how):

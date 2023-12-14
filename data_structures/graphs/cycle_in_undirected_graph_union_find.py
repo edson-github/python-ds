@@ -24,10 +24,7 @@ class Graph:
 
 
     def find_parent(self, parent, i):
-        if parent[i] == -1:
-            return i
-        else:
-            return self.find_parent(parent, parent[i])
+        return i if parent[i] == -1 else self.find_parent(parent, parent[i])
 
     
     def check_cyclic(self):

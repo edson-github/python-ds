@@ -27,10 +27,10 @@ class Graph:
 
     def print_graph(self):
         for i in range(self.V):
-            print("Adjacency list of vertex {}\n head".format(i), end="")
+            print(f"Adjacency list of vertex {i}\n head", end="")
             temp = self.graph[i]
             while temp:
-                print(" -> {}".format(temp.vertex), end="")
+                print(f" -> {temp.vertex}", end="")
                 temp = temp.next
             print(" \n")
 

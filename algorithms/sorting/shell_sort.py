@@ -9,7 +9,7 @@ def shell_sort(arr):
 
     # Start with a big gap, then reduce the gap
     n = len(arr)
-    gap = int(n / 2)
+    gap = n // 2
 
     # Do a gapped insertion sort for this gap size.
     # The first gap elements a[0..gap-1] are already in gapped

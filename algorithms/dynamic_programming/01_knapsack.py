@@ -7,7 +7,7 @@ def knapsack(values, weights, total):
     # rows are the number of items
     # columns are the values of weights required
 
-    t = [[0 for i in range(cols)] for i in range(rows)]
+    t = [[0 for _ in range(cols)] for _ in range(rows)]
 
     for i in range(1, rows):
         for j in range(1, cols):

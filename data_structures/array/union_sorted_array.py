@@ -9,8 +9,7 @@ def union(arr1, arr2):
             res.append(arr2[j])
             j += 1
         else:
-            res.append(arr1[i])
-            res.append(arr2[j])
+            res.extend((arr1[i], arr2[j]))
             i += 1
             j += 1
 

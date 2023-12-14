@@ -51,10 +51,7 @@ def is_one_away(str1, str2):
     # If one string finished before the other, we will certainly
     # have one more edit to consider (adding the last letter), so 
     # we must check if the edit counter is still empty
-    if (i < len(str1) or j < len(str2)) and edit_counter > 0:
-        return False
-
-    return True
+    return i >= len(str1) and j >= len(str2) or edit_counter <= 0
 
 # Driver code
 str1 = input("Enter first string: ")
