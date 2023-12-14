@@ -18,7 +18,7 @@ def cost(arr, A, B):
 
     for i in range(n):
         j = 0
-        
+
         while j < m:
             if arr[i][j] == '*':  # tile is already there
                 j += 1
@@ -26,12 +26,11 @@ def cost(arr, A, B):
 
             if j == m - 1:  # if j is pointing to last tile, you can use only 1*1 tile
                 ans += A
+            elif arr[i][j+1] == '.':
+                ans += min(2 * A, B)
+                j += 1
             else:
-                if arr[i][j+1] == '.':
-                    ans += min(2 * A, B)
-                    j += 1
-                else:
-                    ans += A
+                ans += A
 
             j += 1
 

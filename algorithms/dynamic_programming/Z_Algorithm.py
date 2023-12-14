@@ -18,13 +18,9 @@ class Z_Algorithm():
                 z[i] = min(r - i + 1 , z[i - l])
             while i + z[i] < len(text) and text[z[i]] == text[i + z[i]]:
                 z[i] += 1
-            
+
             if i + z[i] - 1 > r:
                 l = i
                 r = i + z[i] - 1
-        
-        res = []
-        for i in range(size , len(text)):
-            if z[i] == size:
-                res.append(i - size - 1)
-        return res
+
+        return [i - size - 1 for i in range(size , len(text)) if z[i] == size]

@@ -1,26 +1,26 @@
 stack = []
 def checkBalanced(expr):
     for i in expr:
-        if i == "{" or i == "[" or i == "(":
+        if i in ["{", "[", "("]:
             stack.append(i)
-        elif i == "}" or i == "]" or i == ")":
+        elif i in ["}", "]", ")"]:
             if not stack:
                 return False
             top = stack.pop()
-            if i == "}" and top != "{":
-                return False
-            elif i == "]" and top != "[":
-                return False
-            elif i == ")" and top != "(":
+            if (
+                i == "}"
+                and top != "{"
+                or i == "]"
+                and top != "["
+                or i == ")"
+                and top != "("
+            ):
                 return False
         else:
             print("Invalid Expression")
             return False
 
-    if not len(stack):
-        return True
-    else:
-        return False
+    return not len(stack)
 
 # main function
 expr = input()

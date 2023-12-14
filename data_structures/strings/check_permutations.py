@@ -20,24 +20,19 @@ def check_permutations(word1, word2):
     # Case 2: Both strings have a length of zero
     if len(word1) == 0 and len(word2) == 0:
         return True
-    # Case 3: One Letter Strings
     if len(word1) == 1 and len(word2) == 1:
         return word1[0] == word2[0]
-    # Case 4: Length greater than 1 for both strings and lengths are equal
-    else:
-        populate_letter_count(word1)
+    populate_letter_count(word1)
         # Loop through each letter (looping is an O(n) operation)
-        for letter in word2:
-            # Check if it the letter is in the dictionary (checking is O(n) operation)
-            if letter_counts.get(letter) is not None:
-                curr_count = letter_counts.get(letter)
-                if curr_count == 1:
-                    letter_counts.pop(letter)
-                else:
-                    letter_counts[letter] = curr_count - 1
-            else:
-                return False
-        return True
+    for letter in word2:
+        if letter_counts.get(letter) is None:
+            return False
+        curr_count = letter_counts.get(letter)
+        if curr_count == 1:
+            letter_counts.pop(letter)
+        else:
+            letter_counts[letter] = curr_count - 1
+    return True
 
 
 def populate_letter_count(word1):

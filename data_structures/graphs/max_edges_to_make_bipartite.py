@@ -26,15 +26,10 @@ class Graph:
     
     def bfs(self, s):
         count_color0 = 0
-        count_color1 = 0
-
         colors = [-1] * self.vertices
         colors[s] = 1
-        count_color1 += 1
-
-        queue = []
-        queue.append(s)
-
+        count_color1 = 0 + 1
+        queue = [s]
         while queue:
             s = queue.pop(0)
 
@@ -46,9 +41,9 @@ class Graph:
                     else:
                         count_color1 += 1
                     queue.append(i)
-        
-        ans = (count_color0 * count_color1) - (self.vertices - 1) 
-        return ans if ans > 0 else 0 
+
+        ans = (count_color0 * count_color1) - (self.vertices - 1)
+        return max(ans, 0) 
 
 
 g = Graph(5)

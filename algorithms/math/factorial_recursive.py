@@ -2,12 +2,7 @@
 
 def factorial(number):
 
-    if number == 0 or number == 1:
-        return 1
-
-    answer = number * factorial(number - 1)
-
-    return answer
+    return 1 if number in [0, 1] else number * factorial(number - 1)
 
 if __name__ == '__main__':
 

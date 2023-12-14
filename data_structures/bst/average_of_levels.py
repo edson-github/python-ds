@@ -13,9 +13,7 @@ class Node():
 
 
 def mean(arr):
-    m = 0
-    for x in arr:
-        m += x
+    m = sum(arr)
     return m / len(arr)
 
 

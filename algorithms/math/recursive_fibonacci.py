@@ -12,7 +12,7 @@ def rec_fib(n):
         return rec_fib(n-1)+rec_fib(n-2)
 
 def binary_rec_fib(n):
-    if n == 2 or n == 1:
+    if n in [2, 1]:
         return 1
     elif n == 0:
         return 0

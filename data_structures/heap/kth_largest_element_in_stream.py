@@ -35,11 +35,10 @@ class Stream:
         if len(self.heap) < self.k: # when the heap is empty or size is less than K
             heappush(self.heap, x)
             self.curr_min = self.heap[0]
-        else:
-            if x > self.curr_min:
-                heappop(self.heap)  # remove the curr min element
-                heappush(self.heap, x)  # insert x
-                self.curr_min = self.heap[0]
+        elif x > self.curr_min:
+            heappop(self.heap)  # remove the curr min element
+            heappush(self.heap, x)  # insert x
+            self.curr_min = self.heap[0]
                 
 
     def find_kth_max(self):

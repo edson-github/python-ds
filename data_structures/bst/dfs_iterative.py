@@ -32,16 +32,14 @@ def postorder(root):
         if curr:
             stack.append(curr)
             curr = curr.left
+        elif temp := stack[-1].right:
+            curr = temp
         else:
-            temp = stack[-1].right
-            if not temp:
+            temp = stack.pop()
+            print(temp.val, end=" ")
+            while stack and temp == stack[-1].right:
                 temp = stack.pop()
                 print(temp.val, end=" ")
-                while stack and temp == stack[-1].right:
-                    temp = stack.pop()
-                    print(temp.val, end=" ")
-            else:
-                curr = temp
 
 
 def preorder(root):

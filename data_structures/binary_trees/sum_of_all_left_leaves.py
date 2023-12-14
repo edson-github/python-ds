@@ -10,11 +10,7 @@ class Node:
 
 
 def is_leaf(root):
-    if root is None:
-        return False
-    if root.left is None and root.right is None:
-        return True
-    return False
+    return False if root is None else root.left is None and root.right is None
 
 
 def sum_left(root):

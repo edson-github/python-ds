@@ -27,10 +27,9 @@ class Graph:
         for s in range(self.vertices):
             if not visited[s]:
                 visited[s] = True
-                stack = []
-                stack.append(s)
+                stack = [s]
                 count += 1
-                
+
                 while stack:
                     print(stack)
                     s = stack.pop()
@@ -39,7 +38,7 @@ class Graph:
                         if not visited[i]:
                             visited[i] = True
                             stack.append(i)
-                
+
         return count
 
 

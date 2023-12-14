@@ -49,9 +49,7 @@ string_A = input("Enter string A")
 string_B = input("Enter string B")
 string_C = input("Enter string C")
 
-result = isInterleaving(string_A, string_B, string_C)
-
-if(result):
-	print("String C is interleaving String A and String B")
+if result := isInterleaving(string_A, string_B, string_C):
+    print("String C is interleaving String A and String B")
 else:
-	print("String C is not interleaving String A and String B")
+    print("String C is not interleaving String A and String B")

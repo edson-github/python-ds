@@ -21,7 +21,7 @@ def find_platforms(arrival, departure):
             plat += 1
             i += 1
 
-        elif arrival[i] > departure[j]:
+        else:
             plat -= 1
             j += 1
 

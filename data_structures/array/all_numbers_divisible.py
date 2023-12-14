@@ -11,10 +11,7 @@ def check(arr):
     for i in arr:
         if i < min:
             min = i
-    for i in arr:
-        if not i % min == 0:
-            return False
-    return True
+    return all(i % min == 0 for i in arr)
 
 
 arr = [20,10,15,5,100,200, 201]

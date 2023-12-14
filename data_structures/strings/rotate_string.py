@@ -14,7 +14,7 @@ def is_rotate_string(A, B):
         return False
     if len_a == 0:
         return True
-    for i in range(len_a):
+    for _ in range(len_a):
         A = A[-1:] + A[:-1]
         if A == B:
             return True

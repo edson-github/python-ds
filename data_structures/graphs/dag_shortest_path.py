@@ -56,9 +56,7 @@ class Graph:
             i = stack.pop(0)
 
             for vertex, weight in self.graph[i]:
-                if distance[vertex] > distance[i] + weight:
-                    distance[vertex] = distance[i] + weight
-
+                distance[vertex] = min(distance[vertex], distance[i] + weight)
         for i in range(self.vertices):
             print(f"{s} -> {i} = {distance[i]}")
 

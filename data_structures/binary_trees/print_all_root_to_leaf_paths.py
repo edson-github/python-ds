@@ -14,11 +14,11 @@ class Node:
 
 
 def print_route(root, stack):
-    if root == None:
+    if root is None:
         return 
 
     stack.append(root.val)
-    if root.left == None and root.right == None:
+    if root.left is None and root.right is None:
         for i in stack:
             print(i, end=' ')
         print()

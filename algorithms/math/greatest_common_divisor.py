@@ -23,10 +23,7 @@ def gcd(x, y):
 def gcd(x, y):
 	if x == 0:
 		return y
-	if y == 0:
-		return x
-	
-	return gcd(y, x % y)
+	return x if y == 0 else gcd(y, x % y)
 
 # Iterative optimized 
 def gcd(x, y):

@@ -15,15 +15,13 @@ class Graph:
     def is_cyclic_util(self, v, visited, parent):
         visited[v] = True
 
-        for i in self.graph[v]:
-            if visited[i] == False:
-                if self.is_cyclic_util(i, visited, v):
-                    return True
-
-            elif parent != i:
-                return True
-
-        return False
+        return any(
+            visited[i] == False
+            and self.is_cyclic_util(i, visited, v)
+            or visited[i] != False
+            and parent != i
+            for i in self.graph[v]
+        )
 
 
     def is_cyclic(self):

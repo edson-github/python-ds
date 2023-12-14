@@ -16,9 +16,8 @@ class Graph:
     def find_min_edges(self, u, v):
         visited = [False] * self.vertices
         distance = [0] * self.vertices
-        queue = []
+        queue = [u]
 
-        queue.append(u)
         visited[u] = True
 
         while queue:

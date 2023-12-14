@@ -10,7 +10,7 @@ def remove(head, n):
     slow = head
     fast = head
 
-    for i in range(n+1):
+    for _ in range(n+1):
         fast = fast.next
     while fast:
         fast = fast.next

@@ -24,7 +24,7 @@ def level(root, node, lev):
 
     l = level(root.left, node, lev+1)
 
-    if not l == 0:
+    if l != 0:
         return l
 
     l = level(root.right, node, lev+1)
@@ -41,10 +41,7 @@ def is_sibling(root, a, b):
 
 
 def is_cousin(root, a, b):
-    if level(root, a, 1) == level(root, b, 1) and not is_sibling(root, a, b):
-        return True
-    else:
-        return False
+    return level(root, a, 1) == level(root, b, 1) and not is_sibling(root, a, b)
 
 
 root = Node(1)

@@ -15,19 +15,17 @@ class Node:
 
 
 def count(root):
-    if not root:
-        return 0
-    return count(root.left) + count(root.right) + 1
+    return 0 if not root else count(root.left) + count(root.right) + 1
 
 
 def check_util(root, n):
-    if root == None:
+    if root is None:
         return False
-    
+
     # Check for root
     if count(root) == n - count(root):
         return True
-    
+
     # Check for all the other nodes
     return check_util(root.left, n) or check_util(root.right, n)
 

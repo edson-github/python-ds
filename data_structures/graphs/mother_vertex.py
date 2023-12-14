@@ -45,11 +45,7 @@ class Graph:
         visited = [False] * self.V
         self.dfs_util(v, visited)
 
-        if  any(i == False for i in visited):
-            return -1
-
-        else:
-            return v
+        return -1 if any(i == False for i in visited) else v
 
 
 g = Graph(7) 

@@ -12,17 +12,15 @@ class Node:
 def sum_prop(root):
     l = r = 0
 
-    if not root or (not root.left and not root.right):
+    if not root or not root.left and not root.right:
         return True
 
-    else:
-        if root.left:
-            l = root.left.val
+    if root.left:
+        l = root.left.val
 
-        if root.right:
-            r = root.right.val
+    if root.right:
+        r = root.right.val
 
-        if (root.val == l + r) and sum_prop(root.left) and sum_prop(root.right):
-            return True
-        else:
-            return False
+    return bool(
+        (root.val == l + r) and sum_prop(root.left) and sum_prop(root.right)
+    )

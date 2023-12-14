@@ -18,10 +18,7 @@ def verify_base(x):
     try:
         return int(x)
     except:
-        if x in bases:
-            return bases[x]
-        else:
-            return default
+        return bases[x] if x in bases else default
 
 
 def decimal_value(x):
@@ -91,10 +88,10 @@ def convert(n, from_base, to_base):
             decimal_number += (multi * decimal_value(n[i]))
             multi *= from_base
 
-    if(to_base == 10):
+    if (to_base == 10):
         decimal_number = str(decimal_number)
-        if(negative):
-            decimal_number = '-' + decimal_number
+        if negative:
+            decimal_number = f'-{decimal_number}'
 
         return decimal_number
 
@@ -105,8 +102,8 @@ def convert(n, from_base, to_base):
         result = to_special_caracter(value) + result
         decimal_number = int((decimal_number - value)/to_base)
 
-    if(negative):
-            result = '-' + result
+    if negative:
+        result = f'-{result}'
 
     return result
 

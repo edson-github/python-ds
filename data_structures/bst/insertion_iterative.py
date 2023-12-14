@@ -12,11 +12,7 @@ def insert(root, val):
     curr = root
     while curr:
         parent = curr
-        if curr.val <= val:
-            curr = curr.right
-        else:
-            curr = curr.left
-
+        curr = curr.right if curr.val <= val else curr.left
     if parent.val <= val:
         parent.right = new_node
     else:

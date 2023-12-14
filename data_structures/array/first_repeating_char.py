@@ -8,12 +8,11 @@
 # Typically an integer has at-least 32 bits and we need to store presence/absence of only 26 characters.
 
 def first_recurrence(s):
-    checker = 0 
-    pos = 0
+    checker = 0
     for i in s:
         val = ord(i) - ord('a')
         if (checker & (1 << val) > 0):
             return i
-        checker = checker | (1 << val)
-        pos += 1
+        else:
+            checker = checker | (1 << val)
     return -1

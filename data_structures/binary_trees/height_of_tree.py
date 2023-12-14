@@ -16,11 +16,10 @@ def height(root):
     if not root:
         return 0
 
-    else:
-        lheight = height(root.left)
-        rheight = height(root.right)
+    lheight = height(root.left)
+    rheight = height(root.right)
 
-        return 1 + max(lheight, rheight)
+    return 1 + max(lheight, rheight)
 
 
 root = Node(1) 

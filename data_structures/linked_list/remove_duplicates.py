@@ -5,7 +5,7 @@ class Node():
         self.next = None
 
     def __str__(self):
-        return "{}".format(self.val)
+        return f"{self.val}"
 
 
 def remove_duplicates(head):

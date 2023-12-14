@@ -25,13 +25,7 @@ class Graph:
 
         self.dfs_util(v, visited)
 
-        count = 0
-
-        for i in range(self.V):
-            if visited[i] == False:
-                count += 1
-
-        return count
+        return sum(1 for i in range(self.V) if visited[i] == False)
 
 g = Graph(8)  
 g.add_edge(0, 1)  

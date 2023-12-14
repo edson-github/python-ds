@@ -18,5 +18,4 @@ def getSum(a, b):
             carry = carry << 1
             a = diff
             b = carry
-        if b > 0: return (a & mask)
-        else: return a
+        return (a & mask) if b > 0 else a

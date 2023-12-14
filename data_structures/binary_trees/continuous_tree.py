@@ -19,14 +19,14 @@ def continuous(root):
 
     if root is None:
         return True
-    
-    if root.left == None and root.right == None:
-        return True
 
-    if root.left == None:
+    if root.left is None:
+        if root.right is None:
+            return True
+
         return (abs(root.val - root.right.val) == 1) and continuous(root.right)
 
-    if root.right == None:
+    if root.right is None:
         return (abs(root.val - root.left.val) == 1) and continuous(root.left)
 
     return (abs(root.val - root.right.val) == 1) and (abs(root.left.val - root.val) == 1) and continuous(root.left) and continuous(root.right)

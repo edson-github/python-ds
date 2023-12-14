@@ -5,9 +5,9 @@ class Node():
         self.next = None
 
 def delete(head, val):
-    if head == None:
+    if head is None:
         return "List is empty"
-    
+
     curr = head
     prev = None
 

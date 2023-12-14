@@ -12,7 +12,7 @@ class Graph:
 
     def __init__(self, vertices):
         self.V = vertices
-        self.graph = [[] for i in range(vertices)]
+        self.graph = [[] for _ in range(vertices)]
 
 
     def add_edge(self, u, v):
@@ -21,11 +21,7 @@ class Graph:
 
 
     def count_edges(self):
-        s = 0
-
-        for i in range(self.V):
-            s += len(self.graph[i])
-
+        s = sum(len(self.graph[i]) for i in range(self.V))
         return s // 2
 
 

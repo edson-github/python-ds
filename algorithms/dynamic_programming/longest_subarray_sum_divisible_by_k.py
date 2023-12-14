@@ -39,15 +39,14 @@ def find_length(arr, k):
     for i in range(0, len(mod_arr)):
         if mod_arr[i] == 0:
             length += 1
+        elif mod_arr[i] in hash_table:
+            if length < (i - mod_arr[i]):
+                length = i - mod_arr[i]
+                start = mod_arr[i]
+                end = i - 1 # i-1 because the current number is not to considered as it makes the sum not divisible by k
+
         else:
-            if mod_arr[i] not in hash_table:
-                hash_table[mod_arr[i]] = i
-            else:
-                if length < (i - mod_arr[i]):
-                    length = i - mod_arr[i]
-                    start = mod_arr[i]
-                    end = i - 1 # i-1 because the current number is not to considered as it makes the sum not divisible by k
-    
+            hash_table[mod_arr[i]] = i
     return length, arr[start:end+1]
 
 

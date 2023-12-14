@@ -29,14 +29,12 @@ class Graph:
         outtime = [0] * self.vertices
         timer = 0
         num_children_visited = [0] * self.vertices
-        
+
         for s in range(self.vertices):
             if not visited[s]:
                 visited[s] = True
 
-                stack = []
-                stack.append(s)
-                
+                stack = [s]
                 while stack:
                     s = stack.pop()
                     timer += 1
@@ -51,7 +49,7 @@ class Graph:
                     if num_children_visited[i] == len(self.graph[i]):
                         timer += 1
                         outtime[i] = timer                  
-                    
+
         print('intime - ', intime)
         print('outtime - ', outtime)
         print('num_children_visited - ', num_children_visited)
@@ -60,10 +58,11 @@ class Graph:
 
 
     def check_same_path(self, u, v):
-        if (self.intime[u] < self.intime[v] and self.outtime[u] > self.outtime[v]) or \
-                (self.intime[v] < self.intime[u] and self.outtime[v] > self.outtime[u]):
-            return True
-        return False
+        return (
+            self.intime[u] < self.intime[v] and self.outtime[u] > self.outtime[v]
+        ) or (
+            self.intime[v] < self.intime[u] and self.outtime[v] > self.outtime[u]
+        )
 
 
 g = Graph(7)

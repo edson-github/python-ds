@@ -4,23 +4,19 @@ class Graph:
         self.V = vertices
         self.e = 0
         self.d = directed
-        self.graph = [[0 for i in range(vertices)] for j in range(vertices)]
+        self.graph = [[0 for _ in range(vertices)] for _ in range(vertices)]
 
     def add_edge(self, ver1, ver2):
-        if self.d:
-            self.graph[ver1][ver2] = 1
-        else:
-            self.graph[ver1][ver2] = 1
+        self.graph[ver1][ver2] = 1
+        if not self.d:
             self.graph[ver2][ver1] = 1
 
     def remove_edge(self, ver1, ver2):
         if self.graph[ver1][ver2] == 0:
             print("No edge between %d and %d" % (ver1, ver2))
             return
-        if self.d:
-            self.graph[ver1][ver2] = 0
-        else:
-            self.graph[ver1][ver2] = 0
+        self.graph[ver1][ver2] = 0
+        if not self.d:
             self.graph[ver2][ver1] = 0
 
     def print_graph(self):

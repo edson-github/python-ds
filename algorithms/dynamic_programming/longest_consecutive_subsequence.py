@@ -13,19 +13,15 @@ and must have been considered in a different sequence
 """
 
 def find_seq(arr, n):
-    s = set()
-
-    for num in arr:
-        s.add(num)
-
+    s = set(arr)
     ans = 0
     elements = []
 
     for i in range(n):
-        temp = []
-        
         if arr[i] - 1 not in s:
             j = arr[i]
+
+            temp = []
 
             while j in s:
                 temp.append(j)

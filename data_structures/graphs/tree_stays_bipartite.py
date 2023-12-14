@@ -11,7 +11,7 @@ class Graph:
 
     def __init__(self, vertices):
         self.vertices = vertices
-        self.graph = [[] for i in range(vertices)]
+        self.graph = [[] for _ in range(vertices)]
 
     
     def add_edge(self, u, v):
@@ -25,14 +25,13 @@ class Graph:
         colors = [-1] * self.vertices
         colors[s] = 1
 
-        queue = []
+        queue = [s]
 
-        queue.append(s)
         visited[s] = True
 
         while queue:
             u = queue.pop(0)
-            
+
             for v in self.graph[u]:
                 if colors[v] == -1: # This is a tree. So not visited and not colored is same as there is no cycle
                     colors[v] = 1 - colors[u]
@@ -40,10 +39,7 @@ class Graph:
                     color_count[colors[v]] += 1
                     visited[v] = True
 
-        # Counting the max number of edges for graph
-        graph_edges = color_count[0] * color_count[1]
-        
-        return graph_edges
+        return color_count[0] * color_count[1]
 
 
 # Number of tree nodes 

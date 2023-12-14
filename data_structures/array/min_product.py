@@ -44,7 +44,7 @@ def find(arr):
     if count_negative == 0:
         return min_pos
 
-    if count_negative & 1 == 0 and count_negative != 0:
+    if count_negative & 1 == 0:
         prod = int(prod / max_neg)
 
     return prod

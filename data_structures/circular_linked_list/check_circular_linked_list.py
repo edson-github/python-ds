@@ -16,7 +16,7 @@ def check(head):
     while curr:
         if curr.next == head:
             return True
-        elif curr.next == None:
+        elif curr.next is None:
             return False
         curr = curr.next
 

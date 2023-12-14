@@ -8,12 +8,9 @@ def is_perfect_square(num):
     :rtype: bool
     """
     i = 0
-    while i * i < num:
+    while i**2 < num:
         i += 1
-    if i * i == num:
-        return True
-    else:
-        return False
+    return i**2 == num
         
 
 # Test

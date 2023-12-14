@@ -25,7 +25,7 @@ class Queue:
         return de_queued
 
     def rotate(self, rotation):
-        for i in range(rotation):
+        for _ in range(rotation):
             self.put(self.get())
 
     def size(self):

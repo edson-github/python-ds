@@ -2,6 +2,7 @@
 Find the sum of elements between k1th and k2th smallest elements
 """
 
+
 from heapq import heappush, heapify, heappop
 
 heap = [20, 8, 22, 4, 12, 10, 14]
@@ -12,13 +13,8 @@ heapify(heap)
 
 # extracting min k1 times
 
-for i in range(k1):
+for _ in range(k1):
     heappop(heap)
 
-# now do extract min k2 - (k1 + 1) times
-s = 0
-
-for i in range(k2 - k1 - 1):
-    s += heappop(heap)
-
+s = sum(heappop(heap) for _ in range(k2 - k1 - 1))
 print(s)

@@ -1,6 +1,6 @@
 def longest_palindromic_substring_DP(s):
 
-    S = [[False for i in range(len(s))] for j in range(len(s))]
+    S = [[False for _ in range(len(s))] for _ in range(len(s))]
 
     max_palindrome = ""
 
@@ -23,10 +23,10 @@ def longest_palindromic_substring_expansion(s):
     max_palindrome = ""
 
     for i in range(len(s) * 2 - 1):
+        # This is when you are "on" an actual character
+        # o = offset, ind = current character
+        o = 0
         if i % 2 == 0:
-            # This is when you are "on" an actual character
-            # o = offset, ind = current character
-            o = 0
             ind = i // 2
             while ind + o < len(s) and ind - o >= 0:
                 if(s[ind + o] != s[ind - o]):
@@ -35,9 +35,6 @@ def longest_palindromic_substring_expansion(s):
                     max_palindrome = s[ind-o:ind+o + 1]
                 o += 1
         else:
-            # This is when you are "in the middle of" two characters
-            # o = offset, sind = start char, eind = end char
-            o = 0
             sind = i // 2
             eind = i // 2 + 1
             while sind - o >= 0 and eind + o < len(s):
@@ -54,4 +51,4 @@ input_string = "abbbacdcaacdca"
 
 ans_DP = longest_palindromic_substring_DP(input_string)
 ans_expansion = longest_palindromic_substring_expansion(input_string)
-print("DP Solution: {}, Expansion Solution: {}".format(ans_DP, ans_expansion))
+print(f"DP Solution: {ans_DP}, Expansion Solution: {ans_expansion}")

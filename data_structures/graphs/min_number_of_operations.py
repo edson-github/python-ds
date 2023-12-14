@@ -23,9 +23,7 @@ def min_steps(x, y):
     node_x = Node(x, 0)
 
     visited = []
-    queue = []
-    queue.append(node_x)
-
+    queue = [node_x]
     while queue:
         s = queue.pop(0)
 
@@ -42,7 +40,7 @@ def min_steps(x, y):
         if s.value * 2 not in visited:
             new_node = Node(s.value * 2, s.level + 1)
             queue.append(new_node)
-        
+
         if s.value - 1 not in visited:
             new_node = Node(s.value - 1, s.level + 1)
             queue.append(new_node)

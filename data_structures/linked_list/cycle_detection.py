@@ -13,7 +13,7 @@ def detect_cycle(head):
     fast = head.next
 
     while slow != fast:
-        if fast == None or fast.next == None:
+        if fast is None or fast.next is None:
             return False
         slow = slow.next
         fast = fast.next.next

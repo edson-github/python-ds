@@ -17,9 +17,7 @@ class MinHeap:
 
 
     def is_leaf(self, pos):
-        if self.mid_index() <= pos <= self.last_index():
-            return True
-        return False
+        return self.mid_index() <= pos <= self.last_index()
 
 
     def parent(self, pos):
@@ -56,19 +54,20 @@ class MinHeap:
 
 
     def min_heapify(self, pos):
-        if not self.is_leaf(pos):
-            left = self.heap[self.left_child(pos)]
-            right = self.heap[self.right_child(pos)]
-            curr = self.heap[pos]
+        if self.is_leaf(pos):
+            return
+        left = self.heap[self.left_child(pos)]
+        right = self.heap[self.right_child(pos)]
+        curr = self.heap[pos]
 
-            if curr > left or curr > right:
+        if curr > left or curr > right:
 
-                if left > right:
-                    self.swap(pos, self.left_child(pos))
-                    self.min_heapify(self.left_child(pos))
-                else:
-                    self.swap(pos, self.right_child(pos))
-                    self.min_heapify(self.right_child(pos))
+            if left > right:
+                self.swap(pos, self.left_child(pos))
+                self.min_heapify(self.left_child(pos))
+            else:
+                self.swap(pos, self.right_child(pos))
+                self.min_heapify(self.right_child(pos))
     
 
     def insert(self, element):

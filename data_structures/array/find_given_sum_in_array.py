@@ -5,7 +5,7 @@ def find_sum(arr, s):
     curr_sum = arr[0]
     start = 0
     n = len(arr) - 1
-    
+
     i = 1
 
     while i <= n:
@@ -15,7 +15,7 @@ def find_sum(arr, s):
             start += 1
 
         if curr_sum == s:
-            return "Found between {} and {}".format(start, i - 1)
+            return f"Found between {start} and {i - 1}"
 
         curr_sum = curr_sum + arr[i]
         i += 1

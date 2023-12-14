@@ -15,12 +15,11 @@ class BST():
     def insert(self, new_data):
         if self.root is None:
             self.root = Node(new_data)
-        else:
-            if self.root.val < new_data:
+        elif self.root.val < new_data:
 
-                self.insert(self.root.right, new_data)
-            else:
-                self.insert(self.root.left, new_data)
+            self.insert(self.root.right, new_data)
+        else:
+            self.insert(self.root.left, new_data)
 
 
     def inorder(self):

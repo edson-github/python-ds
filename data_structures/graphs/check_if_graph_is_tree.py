@@ -24,12 +24,9 @@ class Graph:
     def is_tree(self, s):
         visited = [False] * self.vertices
         parent = [-1] * self.vertices
-        stack = []
-
         visited[s] = True
         no_of_visited = 1
-        stack.append(s)
-
+        stack = [s]
         while stack:
             s = stack.pop()
 
@@ -42,10 +39,7 @@ class Graph:
                 elif parent[s] != i:
                     return "Not a tree"
 
-        if no_of_visited == self.vertices:
-            return "Graph is Tree"
-        else:
-            return "Not a tree"
+        return "Graph is Tree" if no_of_visited == self.vertices else "Not a tree"
 
         
 g = Graph(7)

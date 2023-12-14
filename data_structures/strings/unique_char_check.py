@@ -16,9 +16,7 @@ from collections import Counter
 def unique_char_check(S):
     character_count = Counter(S)
 
-    if len(character_count) == len(S):
-        return True
-    return False
+    return len(character_count) == len(S)
 
 S = input()
 print(unique_char_check(S))

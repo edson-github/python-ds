@@ -8,14 +8,12 @@ class Node:
 
 def print_spiral(root):
 
-    s1 = []
     s2 = []
 
-    s1.append(root)
+    s1 = [root]
+    while s1 or s2:
 
-    while not len(s1) == 0 or not len(s2) == 0:
-
-        while not len(s1) == 0:
+        while s1:
             temp = s1.pop()
             print(temp.data, end=' ')
 
@@ -24,7 +22,7 @@ def print_spiral(root):
             if temp.left:
                 s2.append(temp.left)
 
-        while not len(s2) == 0:
+        while s2:
             temp = s2.pop()
             print(temp.data, end=' ')
 

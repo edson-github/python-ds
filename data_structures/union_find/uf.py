@@ -42,16 +42,13 @@ class Union_find:
             self.ar[rob] = self.ar[roa]
             self.size[roa] += self.size[rob]
 
-    def find (self, a, b):
+    def find(self, a, b):
         '''
         Function to check if 'a' and 'b' are connected
         Input: node number, node number (integers between 0 and n-1)
         Output: True or False
         '''
-        if self.root (a) == self.root (b):
-            return True
-        else:
-            return False
+        return self.root (a) == self.root (b)
 
     pass
 

@@ -10,8 +10,7 @@ def range_sum_preorder(root, L, R):
     stack = [root]
     sum = 0
     while stack:
-        node = stack.pop()
-        if node:
+        if node := stack.pop():
             if L <= node.val <= R:
                 sum += node.val
             if L < node.val:

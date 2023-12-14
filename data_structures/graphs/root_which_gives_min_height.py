@@ -27,10 +27,10 @@ class Graph:
         for i in range(self.V):
             if self.degree[i] == 1:  # To identify leaf nodes
                 q.put(i)
-                
+
         # now move inwards from the leaf node
         while self.V > 2:
-            for i in range(q.qsize()):
+            for _ in range(q.qsize()):
                 t = q.get()
                 self.V -= 1
 
@@ -41,7 +41,7 @@ class Graph:
                     if self.degree[j] == 1:
                         q.put(j)
 
-        res = list()
+        res = []
         while q.qsize() > 0:
             res.append(q.get())
 
